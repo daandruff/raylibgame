@@ -7,6 +7,10 @@
 #define NODE_WIDTH 16
 #define NODE_HEIGHT 16
 
+#define NODE_GFX_NA LoadTexture("gfx/na.png")
+#define NODE_GFX_BLOCK LoadTexture("gfx/block.png")
+#define NODE_GFX_PLAYER LoadTexture("gfx/player.png")
+
 typedef struct Node {
     int id;
     int active;
@@ -14,6 +18,7 @@ typedef struct Node {
     Vector2 pos;
     Vector2 target;
     float moveSnap;
+    int render;
 } Node;
 
 Node *NodeCreate(void);

@@ -9,7 +9,7 @@ int main(void) {
     InitWindow(screenWidth, screenHeight, "Game!");
 
     Room firstLevel = RoomCreate();
-    Player playerOne = PlayerCreate();
+    Player playerOne = PlayerCreate(NODE_WIDTH * 3, NODE_HEIGHT * 3);
     
     SetTargetFPS(60);
     

@@ -9,11 +9,12 @@ Node *NodeCreate(void) {
     
     thisNode.id = NodeGetNextFree();
     thisNode.active = 1;
-    thisNode.texture = LoadTexture("gfx/block.png");
+    thisNode.texture = NODE_GFX_NA;
     thisNode.pos.x = 0;
     thisNode.pos.y = 0;
     thisNode.target = thisNode.pos;
     thisNode.moveSnap = 1;
+    thisNode.render = 1;
 
     NodeContainer[thisNode.id] = thisNode;
     return &NodeContainer[thisNode.id];
@@ -41,8 +42,8 @@ void NodeSetTarget(Node *self, int x, int y) {
 
 void NodeDraw(Node *self) {
     Vector2 pixelPosition;
-    pixelPosition.x = ((int)self->pos.x / NODE_PIXMULT) * NODE_PIXMULT;
-    pixelPosition.y = ((int)self->pos.y / NODE_PIXMULT) * NODE_PIXMULT;
+    pixelPosition.x = (int)(self->pos.x / NODE_PIXMULT) * NODE_PIXMULT;
+    pixelPosition.y = (int)(self->pos.y / NODE_PIXMULT) * NODE_PIXMULT;
 
     DrawTextureEx(self->texture, pixelPosition, 0, NODE_PIXMULT, WHITE);
 };

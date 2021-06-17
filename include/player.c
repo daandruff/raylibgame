@@ -1,13 +1,16 @@
-#include <stdio.h>
+#include <stdlib.h>
 #include "player.h"
 #include "node.h"
 #include "raylib.h"
 
-Player PlayerCreate(void) {
+Player PlayerCreate(int x, int y) {
     Player thisPlayer;
 
     thisPlayer.node = NodeCreate();
-    thisPlayer.node->texture = LoadTexture("gfx/player.png");
+    thisPlayer.node->texture = NODE_GFX_PLAYER;
+    thisPlayer.node->pos.x = x;
+    thisPlayer.node->pos.y = y;
+    thisPlayer.node->target = thisPlayer.node->pos;
     thisPlayer.node->moveSnap = 0.2;
 
     return thisPlayer;
@@ -16,9 +19,11 @@ Player PlayerCreate(void) {
 void PlayerUpdate(Player *self) {
     if (self->node->pos.x != self->node->target.x) {
         self->node->pos.x += ((self->node->target.x - self->node->pos.x) * self->node->moveSnap);
+        if (abs((self->node->target.x - self->node->pos.x)) < .05) self->node->pos.x = self->node->target.x;
     }
     if (self->node->pos.y != self->node->target.y) {
         self->node->pos.y += ((self->node->target.y - self->node->pos.y) * self->node->moveSnap);
+        if (abs((self->node->target.y - self->node->pos.y)) < .05) self->node->pos.y = self->node->target.y;
     }
 }
 
