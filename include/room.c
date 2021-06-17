@@ -9,7 +9,7 @@ Room RoomCreate(void) {
             NodeSetPos(thisRoom.area[row][col], col * NODE_WIDTH * NODE_PIXMULT, row * NODE_HEIGHT * NODE_PIXMULT);
 
             if (row == 0 || row == (ROOM_MAX_HEIGHT - 1) || col == 0 || col == (ROOM_MAX_WIDTH - 1)) {
-                thisRoom.area[row][col]->texture = NODE_GFX_BLOCK;
+                NodeTextureSet(thisRoom.area[row][col], NODE_GFX_BLOCK);
             } else {
                 thisRoom.area[row][col]->render = 0;
             }

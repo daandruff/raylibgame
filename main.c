@@ -8,6 +8,7 @@ int main(void) {
     
     InitWindow(screenWidth, screenHeight, "Game!");
 
+    NodeTexturesInit();
     Room firstLevel = RoomCreate();
     Player playerOne = PlayerCreate(NODE_WIDTH * 3, NODE_HEIGHT * 3);
     

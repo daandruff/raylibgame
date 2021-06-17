@@ -7,21 +7,23 @@
 #define NODE_WIDTH 16
 #define NODE_HEIGHT 16
 
-#define NODE_GFX_NA LoadTexture("gfx/na.png")
-#define NODE_GFX_BLOCK LoadTexture("gfx/block.png")
-#define NODE_GFX_PLAYER LoadTexture("gfx/player.png")
+#define NODE_GFX_NA 0
+#define NODE_GFX_BLOCK 1
+#define NODE_GFX_PLAYER 2
 
 typedef struct Node {
     int id;
     int active;
-    Texture2D texture;
+    Texture2D *texture;
     Vector2 pos;
     Vector2 target;
     float moveSnap;
     int render;
 } Node;
 
+void NodeTexturesInit(void);
 Node *NodeCreate(void);
+void NodeTextureSet(Node *self, int texture);
 int NodeGetNextFree(void);
 void NodeSetPos(Node *self, int x, int y);
 void NodeSetTarget(Node *self, int x, int y);

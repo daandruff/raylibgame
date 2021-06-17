@@ -7,11 +7,12 @@ Player PlayerCreate(int x, int y) {
     Player thisPlayer;
 
     thisPlayer.node = NodeCreate();
-    thisPlayer.node->texture = NODE_GFX_PLAYER;
     thisPlayer.node->pos.x = x;
     thisPlayer.node->pos.y = y;
     thisPlayer.node->target = thisPlayer.node->pos;
     thisPlayer.node->moveSnap = 0.2;
+
+    NodeTextureSet(thisPlayer.node, NODE_GFX_PLAYER);
 
     return thisPlayer;
 };
