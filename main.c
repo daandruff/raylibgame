@@ -12,7 +12,7 @@ int main(void) {
     Room firstLevel = RoomCreate();
     Player playerOne = PlayerCreate(NODE_WIDTH * 3, NODE_HEIGHT * 3);
     
-    SetTargetFPS(60);
+    SetTargetFPS(24);
     
     while (!WindowShouldClose()) {
         BeginDrawing();
