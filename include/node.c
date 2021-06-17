@@ -9,6 +9,8 @@ void NodeTexturesInit(void) {
     NodeTextures[NODE_GFX_NA] = LoadTexture("gfx/na.png");
     NodeTextures[NODE_GFX_BLOCK] = LoadTexture("gfx/block.png");
     NodeTextures[NODE_GFX_PLAYER] = LoadTexture("gfx/player.png");
+    NodeTextures[NODE_GFX_TILE_A] = LoadTexture("gfx/tile_a.png");
+    NodeTextures[NODE_GFX_TILE_B] = LoadTexture("gfx/tile_b.png");
 };
 
 Node *NodeCreate(void) {

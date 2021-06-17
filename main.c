@@ -6,7 +6,7 @@ int main(void) {
     const int screenWidth = 960;
     const int screenHeight = 528;
     
-    InitWindow(screenWidth, screenHeight, "Game!");
+    InitWindow(screenWidth, screenHeight, "Potpock and the four crusader rings 2");
 
     NodeTexturesInit();
     Room firstLevel = RoomCreate();

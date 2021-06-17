@@ -10,6 +10,8 @@
 #define NODE_GFX_NA 0
 #define NODE_GFX_BLOCK 1
 #define NODE_GFX_PLAYER 2
+#define NODE_GFX_TILE_A 3
+#define NODE_GFX_TILE_B 4
 
 typedef struct Node {
     int id;

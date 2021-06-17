@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "room.h"
 
 Room RoomCreate(void) {
@@ -8,10 +9,16 @@ Room RoomCreate(void) {
             thisRoom.area[row][col] = NodeCreate();
             NodeSetPos(thisRoom.area[row][col], col * NODE_WIDTH * NODE_PIXMULT, row * NODE_HEIGHT * NODE_PIXMULT);
 
-            if (row == 0 || row == (ROOM_MAX_HEIGHT - 1) || col == 0 || col == (ROOM_MAX_WIDTH - 1)) {
-                NodeTextureSet(thisRoom.area[row][col], NODE_GFX_BLOCK);
-            } else {
+            switch (rand() % 5) {
+            case 1:
+                NodeTextureSet(thisRoom.area[row][col], NODE_GFX_TILE_A);
+                break;
+            case 2:
+                NodeTextureSet(thisRoom.area[row][col], NODE_GFX_TILE_B);
+                break;
+            default:
                 thisRoom.area[row][col]->render = 0;
+                break;
             }
         }
     }
